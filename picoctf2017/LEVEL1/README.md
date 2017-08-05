@@ -109,7 +109,8 @@ This time I used netcat for the session, as it is more secure and for non-intera
 I knew I needed some kind of script as soon as I saw this (be careful, it is changing all the time): 
  > Please give me the 'w' character '666' times, followed by a single '2'.
 
-Script is in the folder. ** Script: "how to deal with sockets when trying to interact with a connection" **
+Script is in the folder. 
+**Script: "how to deal with sockets when trying to interact with a connection"**
 
 ### Leaf of the Forest  :deciduous_tree:
 
