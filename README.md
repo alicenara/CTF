@@ -4,3 +4,5 @@ This is just a guide of some CTF I'm solving, and I am writing it because when I
 Oh and all webpages that I link that helps me encode/decode/whatever are just examples (first or second Google result). They may be down or something.
 
 **I DO NOT OWN ANY OF THIS GAMES NOR WEBPAGES NOR ANYTHING D:**
+
+### BEWARE OF SPOILERS!
