@@ -32,10 +32,14 @@ Another .pcap file, yay.
 The User Agent is a field in web requests that is used to get data about the client. For example:
  ``` Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36 ``` 
 
-- The user agent application is Mozilla version 5.0, or a piece of software compatible with it. MozillaProductSlice. Claims to be a Mozilla based user agent, which is only true for Gecko browsers like Firefox and Netscape. For all other user agents it means 'Mozilla-compatible'. In modern browsers, this is only used for historical reasons. It has no real meaning anymore.
+- The user agent application is Mozilla version 5.0, or a piece of software compatible with it. MozillaProductSlice. 
+Claims to be a Mozilla based user agent, which is only true for Gecko browsers like Firefox and Netscape. 
+For all other user agents it means 'Mozilla-compatible'. In modern browsers, this is only used for historical reasons. 
+It has no real meaning anymore.
 - The X11 we see means X Window System: a windowing system for bitmap displays.
 - The operating system is Linux, on an Intel CPU, 64 bit processor.
-- The engine responsible for displaying content on this device is AppleWebKit version 537.36 (and KHTML, an open source layout engine, is present too).
+- The engine responsible for displaying content on this device is AppleWebKit version 537.36 
+(and KHTML, an open source layout engine, is present too).
 - The client (browser) is Chrome version 58.0.3029.96.
 - The client is based on Safari version 537.36.
 
@@ -46,3 +50,74 @@ And the same but using Firefox (who also tells you which Linux is being used):
 ``` Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0 ```
 
 So for this problem you need to find an HTTP packet with the user agent.
+
+## CRYPTOGRAPHY
+
+### keyz
+
+Ok, this one is pretty easy. Assuming you are working on Linux:
+1. You should create a SSH key on you own computer (https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2).
+2. Go to ~/.ssh/id_rsa.pub and copy the public key (everything on that file).
+3. Go to the webconsole and create the file ~/.ssh/authorized_keys. Paste your key.
+4. SSH the server: ssh username@shell2017.picoctf.com
+
+## Substitute
+
+
+## Web Exploitation
+
+### What is Web
+
+There are 3 parts of the flag hidden in this Web. 
+1. You need to look for comments in the HTML main page.
+2. There are some comments too in the CSS file.
+3. Unexpectedly, there are comments in the JS file too.
+
+## MISC
+
+### Internet Kitties
+
+To look what is waiting for you in this port you just need to open a telnet session:
+``` telnet url port ```
+
+### Leaf of the Tree
+
+I just did a recursive ls, not a good idea if there are a lot of branches but whatever.
+``` ls -R . ```
+
+### loooooooooong (?)
+
+This time I used netcat for the session, as it is more secure and for non-interactive stuff.
+``` netcat url port ```
+
+I knew I needed some kind of script as soon as I saw this (be careful, it is changing all the time): 
+ > Please give me the 'w' character '666' times, followed by a single '2'.
+
+Script is in the folder. ** Script: "how to deal with sockets when trying to interact with a connection" **
+
+### Leaf of the Forest
+
+This time I used something a little bit more sophisticated:
+``` loc=$(grep -R -L "flag") 
+    cat $loc
+```
+
+### WorldChat
+
+The flag is posted in 8 fragments. I cheated here, I just saved it in a file and then looked for the flags
+with vim, although you can search for it with grep.
+
+``` nc host port > chat.txt
+    grep "the flag" chat.txt
+```
+I used "the flag" as the string because the solution is written like "17:39:58 flagperson: this is part 1/8 
+of the flag - 3572"
+
+
+# MASTER CHALLENGE
+
+This one... I don't know if it is supposed to be more dificult but as I observed that the password 
+validation function is not working, I just called the AJAX function with the console.
+ ``` F12 + console + make_ajax_req("password") ```
+
+(The JS is loaded in the client, so you can just call it whenever you want).
