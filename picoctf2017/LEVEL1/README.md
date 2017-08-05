@@ -1,8 +1,8 @@
-# LEVEL 1
+# LEVEL 1  :new_moon:
 
-## FORENSICS 
+## FORENSICS :whale:
 
-### Digital Camouflage
+### Digital Camouflage  :koala:
 
 Ok, you need to retrieve the router's password. They give you a .pcap file with a network capture and you need some program
  like wireshark (https://www.wireshark.org/) in order to inspect it.
@@ -25,7 +25,7 @@ Usually, to log in a website, a POST message is sent with the introduced user an
 
 Finally, something ending like == is probably encoded in Base64, so you just need to decode it (http://base64decode.net/).
 
-### Special Agent User
+### Special Agent User  :penguin:
 
 Another .pcap file, yay. 
 
@@ -51,9 +51,9 @@ And the same but using Firefox (who also tells you which Linux is being used):
 
 So for this problem you need to find an HTTP packet with the user agent.
 
-## CRYPTOGRAPHY
+## CRYPTOGRAPHY  :key:
 
-### keyz
+### keyz  :loudspeaker:
 
 Ok, this one is pretty easy. Assuming you are working on Linux:
 1. You should create a SSH key on you own computer (https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2).
@@ -61,31 +61,47 @@ Ok, this one is pretty easy. Assuming you are working on Linux:
 3. Go to the webconsole and create the file ~/.ssh/authorized_keys. Paste your key.
 4. SSH the server: ssh username@shell2017.picoctf.com
 
-## Substitute
+### Substitute    :scissors:
+
+A file here is needed to substitute words for others.
+
+### Hash 101 :8ball:
+
+After connecting to it, it will ask for 4 challenges:
+- Convert a binary string to ASCII
+- Convert the same ASCII to HEX and then to DEC
+- With a given remainder, input a string which the sum of its chars are a multiple of 16 + remainder.
+- Decrypt a well known MD5 hash (always the same). I did it with https://hashkiller.co.uk/md5-decrypter.aspx.
+
+For the other ones I'm going to make some files...
 
 
-## Web Exploitation
+## WEB EXPLOITATION  :space_invader:
 
-### What is Web
+### What is Web  :cake:
 
 There are 3 parts of the flag hidden in this Web. 
 1. You need to look for comments in the HTML main page.
 2. There are some comments too in the CSS file.
 3. Unexpectedly, there are comments in the JS file too.
 
-## MISC
+## MISC  :shaved_ice:
 
-### Internet Kitties
+### Internet Kitties  :camel:
 
 To look what is waiting for you in this port you just need to open a telnet session:
 ``` telnet url port ```
 
-### Leaf of the Tree
+### Piazza  :fish_cake:
+
+This one is not even a CTF, it's in the welcome message of the Piazza. (just in case someone needs it)
+
+### Leaf of the Tree  :herb:
 
 I just did a recursive ls, not a good idea if there are a lot of branches but whatever.
 ``` ls -R . ```
 
-### loooooooooong (?)
+### loooooooooong (?)  :octocat:
 
 This time I used netcat for the session, as it is more secure and for non-interactive stuff.
 ``` netcat url port ```
@@ -95,14 +111,14 @@ I knew I needed some kind of script as soon as I saw this (be careful, it is cha
 
 Script is in the folder. ** Script: "how to deal with sockets when trying to interact with a connection" **
 
-### Leaf of the Forest
+### Leaf of the Forest  :deciduous_tree:
 
 This time I used something a little bit more sophisticated:
 ``` loc=$(grep -R -L "flag") 
     cat $loc
 ```
 
-### WorldChat
+### WorldChat  :squirrel:
 
 The flag is posted in 8 fragments. I cheated here, I just saved it in a file and then looked for the flags
 with vim, although you can search for it with grep.
@@ -114,7 +130,7 @@ I used "the flag" as the string because the solution is written like "17:39:58 f
 of the flag - 3572"
 
 
-# MASTER CHALLENGE
+# MASTER CHALLENGE  :eggplant:
 
 This one... I don't know if it is supposed to be more dificult but as I observed that the password 
 validation function is not working, I just called the AJAX function with the console.
