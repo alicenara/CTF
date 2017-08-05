@@ -1,8 +1,8 @@
-LEVEL 1
+# LEVEL 1
 
-- FORENSICS - 
+## FORENSICS 
 
-. Digital Camouflage
+### Digital Camouflage
 
 Ok, you need to retrieve the router's password. They give you a .pcap file with a network capture and you need some program
  like wireshark (https://www.wireshark.org/) in order to inspect it.
@@ -25,7 +25,7 @@ Usually, to log in a website, a POST message is sent with the introduced user an
 
 Finally, something ending like == is probably encoded in Base64, so you just need to decode it (http://base64decode.net/).
 
-. Special Agent User
+### Special Agent User
 
 Another .pcap file, yay. 
 
