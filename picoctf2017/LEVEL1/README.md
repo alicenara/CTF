@@ -63,7 +63,10 @@ Ok, this one is pretty easy. Assuming you are working on Linux:
 
 ### Substitute    :scissors:
 
-A file here is needed to substitute words for others.
+In this first problems this kind of text always have a phrase like "this is the passcode" or "the code is" or something similar,
+so you should start looking for this and then try to guess the other letters. This time I found some words that helped me like 
+"december" or "wikipedia".
+The file with a solution in python is in the folder.
 
 ### Hash 101 :8ball:
 
