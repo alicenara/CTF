@@ -130,8 +130,11 @@ If we execute bashloop, it is asking for a number as a parameter. We can try all
 I filtered it to display just the correct number and the flag because there are too many numbers (and output cannot be saved).
 
 My solution was:
+```
 
 for i in {0..4096}; do  result=$(echo -n $i; ./bashloop $i); if [[ $result == *"Yay"* ]]; then echo $result; fi ; done
+
+```
 
 (I am looking for a "Yay" as I inspected the binary and it found this is the string with the flag).
 
@@ -173,8 +176,10 @@ Script is in the folder.
 ### Leaf of the Forest  :deciduous_tree:
 
 This time I used something a little bit more sophisticated:
-``` loc=$(grep -R -L "flag") 
+``` 
+    loc=$(grep -R -L "flag") 
     cat $loc
+
 ```
 
 ### WorldChat  :squirrel:
