@@ -78,6 +78,40 @@ After connecting to it, it will ask for 4 challenges:
 
 For the other ones I'm going to make some files...
 
+### ComputeAES
+
+It literally says that is using AES in ECB mode and all values are base64 encoded, so you just need to decode in base64 all
+and then do the AES decode.
+
+File in folder.
+
+### ComputeRSA
+
+It is explained in the file but it's just c^d mod n.
+
+File in folder.
+
+## REVERSE ENGINEERING
+
+### Hex2Raw
+
+With this one I was puzzled on what to do. I did a cat to the file and couldn't get the flag this way. Then I tried to execute it and
+yay it worked. So the goal was to input some unprintable chars into the hex2raw program.
+
+I did it with:
+1. echo -n [HEX], n for not adding and end of line
+2. xxd -r -p, to reverse from hex to ascii and outputting it 
+3. ./hex2raw 
+4. pipes (|) to pass info from 1 to 3
+
+### Raw2Hex
+
+The reverse of the last one:
+
+1. The execution of ./raw2hex gives you the flag in unprintable chars
+2. I cut it to get only the flag (cut -d ":" -f 2)
+3. Then I reversed the chars to hex with xxd -p
+4. Pipes (|) from 1 to 3.
 
 ## WEB EXPLOITATION  :space_invader:
 
@@ -87,6 +121,27 @@ There are 3 parts of the flag hidden in this Web.
 1. You need to look for comments in the HTML main page.
 2. There are some comments too in the CSS file.
 3. Unexpectedly, there are comments in the JS file too.
+
+## BINARY EXPLOITATION
+
+### Bash Loop
+
+If we execute bashloop, it is asking for a number as a parameter. We can try all numbers or just do a loop that tries them all.
+I filtered it to display just the correct number and the flag because there are too many numbers (and output cannot be saved).
+
+My solution was:
+
+for i in {0..4096}; do  result=$(echo -n $i; ./bashloop $i); if [[ $result == *"Yay"* ]]; then echo $result; fi ; done
+
+(I am looking for a "Yay" as I inspected the binary and it found this is the string with the flag).
+
+## Just No
+
+For this one the key is a soft link. 
+As the program is using a relative path to access to the auth file, if you create a soft link of the binary into your 
+~/troll/problems/problemfolder, and there you add another auth file, it will look for your the auth file.
+
+To create a soft link: ``` ln -s folder/file_to_soft_link folder/soft_linked_file ```
 
 ## MISC  :shaved_ice:
 
