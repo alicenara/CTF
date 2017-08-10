@@ -78,22 +78,22 @@ After connecting to it, it will ask for 4 challenges:
 
 For the other ones I'm going to make some files...
 
-### ComputeAES
+### ComputeAES  :rocket:
 
 It literally says that is using AES in ECB mode and all values are base64 encoded, so you just need to decode in base64 all
 and then do the AES decode.
 
 File in folder.
 
-### ComputeRSA
+### ComputeRSA  :airplane:
 
 It is explained in the file but it's just c^d mod n.
 
 File in folder.
 
-## REVERSE ENGINEERING
+## REVERSE ENGINEERING  :moyai:
 
-### Hex2Raw
+### Hex2Raw  :sunrise_over_mountains:
 
 With this one I was puzzled on what to do. I did a cat to the file and couldn't get the flag this way. Then I tried to execute it and
 yay it worked. So the goal was to input some unprintable chars into the hex2raw program.
@@ -104,7 +104,7 @@ I did it with:
 3. ./hex2raw 
 4. pipes (|) to pass info from 1 to 3
 
-### Raw2Hex
+### Raw2Hex  :sunrise:
 
 The reverse of the last one:
 
@@ -122,9 +122,9 @@ There are 3 parts of the flag hidden in this Web.
 2. There are some comments too in the CSS file.
 3. Unexpectedly, there are comments in the JS file too.
 
-## BINARY EXPLOITATION
+## BINARY EXPLOITATION :warning:
 
-### Bash Loop
+### Bash Loop :tulip:
 
 If we execute bashloop, it is asking for a number as a parameter. We can try all numbers or just do a loop that tries them all.
 I filtered it to display just the correct number and the flag because there are too many numbers (and output cannot be saved).
@@ -135,7 +135,7 @@ for i in {0..4096}; do  result=$(echo -n $i; ./bashloop $i); if [[ $result == *"
 
 (I am looking for a "Yay" as I inspected the binary and it found this is the string with the flag).
 
-## Just No
+### Just No  :rooster:
 
 For this one the key is a soft link. 
 As the program is using a relative path to access to the auth file, if you create a soft link of the binary into your 
